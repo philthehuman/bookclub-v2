@@ -1,0 +1,5 @@
+<section class="card">
+	<h1><%=book.title%></h1>	
+	<p>Author: <%= link_to book.author.name, author_path(book.author.id) %>
+	<p>Genre: <%=book.genre %>
+</section>
