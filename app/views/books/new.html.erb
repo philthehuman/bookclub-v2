@@ -1,0 +1,22 @@
+<h1>Add a book</h1>
+
+<%= form_with model: @book do |form|%>
+	<div class="p-2">
+		<%=form.label :title %>
+		<%=form.text_field :title, required:true %>
+	</div>
+	<div class="p-2">
+		<%=form.label :genre %>
+		<%=form.text_field :genre%>
+	</div>
+	<h2>Author:</h2>
+	<div class="p-2">
+		<%=form.label :author_first_name %>
+		<%=form.text_field :author_first_name, required:true %>
+	</div>
+	<div class="p-2">
+		<%=form.label :author_last_name %>
+		<%=form.text_field :author_last_name, required:true %>
+	</div>
+	<%=form.submit "Add book"%>
+<%end%>
