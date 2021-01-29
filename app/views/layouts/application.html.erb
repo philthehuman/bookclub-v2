@@ -12,7 +12,11 @@
   </head>
 
   <body>
-	<%=render "shared/nav" %>
-    <%= yield %>
+	<section class="section">
+		<section class="content">
+			<%=render "shared/nav" %>
+			<%= yield %>
+		</section>
+	</section>
   </body>
 </html>
