@@ -1,24 +1,21 @@
-# README
+# Book Club
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app displays books and authors. Currently, books can be added.
 
-Things you may want to cover:
+Things to add:
+- delete book
+- edit book
+- data validation
+  - prevent adding the same book twice
+  - more robust logic to prevent adding an author twice (i.e., case of first and last name entered shouldn't matter)
+  - model validations for required fields
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After these basic things are added, (and after you cover Devise and authentication) try adding:
+- users (with Devise)
+- user book lists (a user can maintain a list of favourite books)
+  - add book to list
+  - remove book from list
+- users can follow each other
+  - can show list of users I am following
+  - follow/unfollow a user
+  - show book lists for a user
