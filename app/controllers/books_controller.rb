@@ -9,18 +9,23 @@ class BooksController < ApplicationController
 	end
 
 	def create
+		author_params = book_params[:author_attributes]
+		if !author_params[:first_name].empty? && !author_params[:last_name].empty?
+			# Create new author
+			@author = Author.create(author_params)
+		else
+			# Use the selected author
+			@author = Author.find(book_params[:author])
+		end
 
-		author = Author.find_by_name(book_params[:author_first_name], book_params[:author_last_name])
-
-		author = author || Author.new(first_name: book_params[:author_first_name], last_name: book_params[:author_last_name])
-
-		book = Book.create(title: book_params[:title], genre: book_params[:genre], author: author)
+		book = Book.create(title: book_params[:title], genre_ids: book_params[:genres], author: @author)
 
 		redirect_to book_path(book.id)
 	end
 
 	def new
 		@book = Book.new
+		@book.build_author
 	end
 
 	private
@@ -33,6 +38,6 @@ class BooksController < ApplicationController
 		end
 	end
 	def book_params
-		params.require(:book).permit(:title, :genre, :author_first_name, :author_last_name)
+		params.require(:book).permit(:title, :author, genres: [], author_attributes: [:first_name, :last_name])
 	end
 end
