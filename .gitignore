@@ -40,3 +40,5 @@ yarn-debug.log*
 Gemfile.lock
 yarn.lock
 
+.env
+
