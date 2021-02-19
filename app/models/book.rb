@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   has_many :genres, through: :books_genres
   accepts_nested_attributes_for :author
   has_one_attached :cover
+  validates :price, :inclusion => 0..1000
 
   def list_genres
     (self.genres.map { |genre| genre.name }).join(", ")
