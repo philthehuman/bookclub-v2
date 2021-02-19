@@ -7,4 +7,5 @@
 	<p>Author: <%= link_to book.author.name, author_path(book.author.id) %>
 	<p>Genres: <%= book.list_genres %>
 	<p><%= number_to_currency book.price%></p>
+	<p><%= link_to "Buy Now", new_order_path(book_id: book.id), method: :get %></p>
 </section>
